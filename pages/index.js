@@ -24,12 +24,12 @@ export async function getServerSideProps() {
   // Get external data from the file system, API, DB, etc.
   let hostname =
     typeof window != "undefined"
-      ? window.location.host
+      ? "https://dimsum-dash.vercel.app"
       : "http://localhost:3000";
 
   console.log(hostname);
 
-  const data = await fetch(`${hostname}/api/menu`)
+  const data = await fetch(`https://dimsum-dash.vercel.app/api/menu`)
     .then((response) => response.json())
     .then((result) => {
       return result;
