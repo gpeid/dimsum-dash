@@ -25,8 +25,8 @@ export async function getServerSideProps() {
   let hostname =
     typeof window != "undefined"
       ? window.location.host
-      : "http://localhost:3000/";
-  const data = await fetch(`${hostname}api/menu`)
+      : "http://localhost:3000";
+  const data = await fetch(`${hostname}/api/menu`)
     .then((response) => response.json())
     .then((result) => {
       return result;
