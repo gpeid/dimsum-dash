@@ -20,14 +20,14 @@ import styles from "../styles/Home.module.css";
 //   };
 // }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // Get external data from the file system, API, DB, etc.
   let hostname =
     typeof window != "undefined"
       ? "https://dimsum-dash.vercel.app"
       : "http://localhost:3000";
 
-  console.log(hostname);
+  console.log("hostname is", hostname);
 
   const data = await fetch(`https://dimsum-dash.vercel.app/api/menu`)
     .then((response) => response.json())
@@ -136,7 +136,7 @@ export default function Home({ data }) {
                   text="+"
                   int={multiplier}
                 />{" "}
-                {dishes.dishObj[item.machine_name].total}
+                {dishes.dishObj[item.machine_name].total} x ${item.menu_price}
                 <br />${dishes.dishObj[item.machine_name].total_sale}
               </div>
             );
