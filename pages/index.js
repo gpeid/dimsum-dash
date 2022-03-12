@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Button from "../components/button";
+import Button from "../components/Button";
 import styles from "../styles/Home.module.css";
 
 // export async function getStaticProps() {
