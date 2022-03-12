@@ -22,8 +22,10 @@ import styles from "../styles/Home.module.css";
 
 export async function getServerSideProps() {
   // Get external data from the file system, API, DB, etc.
-  // let hostname = window.location.host;
-  let hostname = "http://localhost:3000/";
+  let hostname =
+    typeof window != "undefined"
+      ? window.location.host
+      : "http://localhost:3000/";
   const data = await fetch(`${hostname}api/menu`)
     .then((response) => response.json())
     .then((result) => {
