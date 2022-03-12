@@ -26,6 +26,9 @@ export async function getServerSideProps() {
     typeof window != "undefined"
       ? window.location.host
       : "http://localhost:3000";
+
+  console.log(hostname);
+
   const data = await fetch(`${hostname}/api/menu`)
     .then((response) => response.json())
     .then((result) => {
@@ -54,6 +57,7 @@ export default function Home({ data }) {
   const [multiplier, setMultiplier] = useState(1);
   useEffect(() => {
     console.log(dishes);
+    console.log(window.location.host);
   }, [multiplier]);
 
   const addDish = (name, total) => {
